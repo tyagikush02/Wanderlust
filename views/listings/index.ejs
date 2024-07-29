@@ -1,0 +1,123 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<script>
+    listings=listings
+</script>
+<body>
+    <div class="filters scrollable-div">
+        <div class="scrollable-content">
+        <form action="/listings" method="get">
+            <button class="category" type="submit" name="category" value="icons">
+                <div class="filter">
+                    <div><i class="fa-solid fa-icons"></i></div>
+                    Icons
+                </div>
+            </button>
+            <button class="category" type="submit" name="category" value="amazingpools">
+                <div class="filter">
+                    <div><i class="fa-solid fa-person-swimming"></i></div>
+                    Amazing pools
+                </div>
+            </button>
+            
+            <button class="category" type="submit" name="category" value="farms">
+                <div class="filter">
+                    <div><i class="fa-solid fa-tractor"></i></div>
+                    Farms
+                </div>
+            </button>
+            
+            <button class="category" type="submit" name="category" value="treehouses">
+                <div class="filter">
+                    <div><i class="fa-solid fa-warehouse"></i></div>
+                    Treehouses
+                </div>
+            </button>
+            
+            <button class="category" type="submit" name="category" value="beach">
+                <div class="filter">
+                    <div><i class="fa-solid fa-umbrella-beach"></i></div>
+                    Beach
+                </div>
+            </button>
+            
+            <button class="category" type="submit" name="category" value="castles">
+                <div class="filter">
+                    <div><i class="fa-solid fa-chess-rook"></i></div>
+                    Castles
+                </div>
+            </button>
+            
+            <button class="category" type="submit" name="category" value="rooms">
+                <div class="filter">
+                    <div><i class="fa-solid fa-bed"></i></div>
+                    Rooms
+                </div>
+            </button>
+            
+            <button class="category" type="submit" name="category" value="trending">
+                <div class="filter">
+                    <div><i class="fa-solid fa-fire"></i></div>
+                    Trending
+                </div>
+            </button>
+            
+            <button class="category" type="submit" name="category" value="domes">
+                <div class="filter">
+                    <div><i class="fa-solid fa-igloo"></i></div>
+                    Domes
+                </div>
+            </button>
+            
+            <button class="category" type="submit" name="category" value="topcities">
+                <div class="filter">
+                    <div><i class="fa-solid fa-city"></i></div>
+                    Top cities
+                </div>
+            </button>
+            
+            <button class="category" type="submit" name="category" value="arctic">
+                <div class="filter">
+                    <div><i class="fa-solid fa-snowflake"></i></div>
+                    Arctic
+                </div>
+            </button>
+        </form>
+    </div>
+        <div class="form-check form-switch tooglebtn">
+            <div>
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <% for(let listing of listings){ %>
+            <a href="listings/<%= listing._id %>">
+                <div class="listing-card">
+                    <div class="img"><img src="<%=listing.image.url%>" alt=""></div> <br>
+                    <div class="detail">
+                        <p><%= listing.title %></p>
+                        <p>&#8377;<%= listing.price %>/night <span class="taxes">+18%</span></p>
+                    </div>
+                </div>
+            </a>
+        <% } %>
+    </div>
+</body>
+
+<script>
+    let toogle=document.querySelector(".form-check-input");
+    let spans = document.querySelectorAll(".taxes");
+    toogle.addEventListener("click",()=>{
+        // Iterate over each <span> element
+        spans.forEach(function(span) {
+            // Apply style changes
+            if(span.style.display === "none" || span.style.display === ""){
+                span.style.display="inline";
+            }
+            else{
+                span.style.display = "none";
+            }
+        });
+    });
+</script>

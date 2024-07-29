@@ -1,0 +1,27 @@
+<div class="nav">
+    <div class="control_panel">
+        <ul>
+            <li><a href="/listings"><i class="fa-brands fa-airbnb"></i></a></li>
+            <li><a href="/listings"><i class="fa-solid fa-house"></i> Explore</a></li>
+        </ul>
+        <ul>
+            <li>
+                <form class="d-flex needs-validation" action="/listings" method="get"novalidate>
+                    <input class="form-control me-2" type="search"  name="country" placeholder="Search for your country"required>
+                    <button type="submit">Search</button>
+                </form>
+            </li>
+        </ul>
+        <ul>
+            <li><a href="/listings/new">Airbnb your Home</a></li>
+            <% if(!currUser){ %>
+            <li><a href="/signup"><i class="fa-solid fa-user-plus"></i><b> SignUp</b></a></li>
+            <li><a href="/login"><i class="fa-solid fa-right-to-bracket"></i><b> Login</b></a></li>
+            <% } %>
+            <% if(currUser){ %>
+            <li><a><i class="fa-solid fa-user"></i> <b><%=currUser.username%></b></a></li>
+            <li><a href="/logout"><i class="fa-solid fa-right-from-bracket"></i><b> Logout</b></a></li>
+            <% } %>
+        </ul>
+    </div>
+</div>

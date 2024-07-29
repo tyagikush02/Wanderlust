@@ -1,0 +1,54 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <form class="edit" action="/listings/<%= listing._id %>?_method=PATCH" method="post" enctype="multipart/form-data">
+        <h1>Edit your Listings</h1>
+        <div>
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="listing[title]" value="<%=listing.title%>" required><br>
+        </div><br>
+        <div>
+            <label for="Desciption">Desciption:</label><br>
+            <input type="text" id="Desciption" name="listing[description]" value="<%=listing.description%>" required>
+        </div><br>
+        <div>
+            <label>original image : </label>
+            <img src="<%= originalImgUrl %>" alt="listingImg">
+        </div><br>
+        <div>
+            <label for="imgSrc">ImgUrl:</label>
+            <input type="file" id="imgSrc" name="listing[image]">
+        </div><br>
+        <div>
+            <label for="price">Price:</label>
+            <span>&#8377;</span><input type="text" id="price" name="listing[price]" value="<%=listing.price%>" required>
+        </div><br>
+        <div>
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="listing[country]" value="<%=listing.country%>"required>
+        </div><br>
+        <div>
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="listing[location]" value="<%=listing.location%>"required>
+        </div><br>
+        <div>
+            <label for="category">Category : </label>
+            <select name="listing[category]" id="category">
+                <option value="icons" <%= listing.category === 'icons' ? 'selected' : '' %>>Icons</option>
+                <option value="amazingpools" <%= listing.category === 'amazingpools' ? 'selected' : '' %>>Amazing pools</option>
+                <option value="farms" <%= listing.category === 'farm' ? 'selected' : '' %>>Farm</option>
+                <option value="treehouses" <%= listing.category === 'treehouses' ? 'selected' : '' %>>Treehouses</option>
+                <option value="beach" <%= listing.category === 'beach' ? 'selected' : '' %>>Beach</option>
+                <option value="castles" <%= listing.category === 'castles' ? 'selected' : '' %>>Castles</option>
+                <option value="rooms" <%= listing.category === 'rooms' ? 'selected' : '' %>>Rooms</option>
+                <option value="trending" <%= listing.category === 'trending' ? 'selected' : '' %>>Trending</option>
+                <option value="domes" <%= listing.category === 'domes' ? 'selected' : '' %>>Domes</option>
+                <option value="topcities" <%= listing.category === 'topcities' ? 'selected' : '' %>>Topcities</option>
+                <option value="arctic" <%= listing.category === 'arctic' ? 'selected' : '' %>>Arctic</option>
+            </select>
+        </div>
+        
+        <br>
+        <button>Make changes</button><br>
+        <a href="/listings/<%= listing._id %>">Back to Listing</a>
+    </form>
+</body>

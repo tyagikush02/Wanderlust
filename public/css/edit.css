@@ -1,0 +1,55 @@
+.edit{
+    display: flex!important;
+    justify-content: flex-start!important;
+    width: 50%!important;
+    margin: auto!important;
+    flex-direction: column!important;
+}
+
+.edit div{
+    margin-bottom: 1rem;
+}
+.one{
+    display: inline!important;
+}
+button{
+    background-color: red;
+    color: white;
+    border-radius: 0.3rem;
+    margin-top: 0.2rem;
+    width: 8rem;
+    height: 2rem;
+    text-align: center;
+}
+
+button:hover{
+    background-color: white;
+    color:black;
+}
+
+.edit a{
+    background-color: black !important;
+    color: white !important;
+    border-radius: 0.3rem !important;
+    width: 8rem !important;
+    height: 2rem !important;
+    text-decoration: none !important;
+    text-align: center !important;
+}
+
+.edit span{
+    background-color: grey !important;
+    color: white !important;
+    padding: 0.35rem !important;
+    position: relative;
+    top: 2rem;
+    left: -3.8rem;
+}
+
+.edit input{
+    width:100% !important;
+    height:2rem !important;
+}
+.price input{
+    display: inline !important;
+}

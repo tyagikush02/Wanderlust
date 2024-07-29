@@ -1,0 +1,65 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <form class="edit needs-validation" action="/listings" method="post" enctype="multipart/form-data" novalidate>
+        <h1>Add your Listings</h1>
+        <div>
+            <label for="title">Title:</label><br>
+            <input 
+            class="form-check-input" type="text" id="title" name="listing[title]"placeholder="Enter title" required>
+            <div class="invalid-feedback">
+                Please provide a valid Title.
+            </div>
+        </div>
+        <div>
+            <label for="Description">Description:</label>
+            <input class="form-check-input" type="text" id="Desciption" name="listing[description]"placeholder="Enter Description"required>
+            <div class="invalid-feedback">
+                Please provide a valid Description.
+            </div>
+        </div>
+            <label for="imgSrc">Upload Image :</label>
+            <input class="form-check-input" type="file" id="imgSrc" name="listing[image]" required>
+            <div class="invalid-feedback">
+                Please upload image.
+            </div>
+        <div>
+            <label for="price">Price:</label>
+            <span>&#8377;</span><input placeholder="Enter Price"class="form-check-input" id="price" name="listing[price]"required>
+            <div class="invalid-feedback">
+                Please provide a valid Price.
+            </div>
+        </div>
+        <div>
+            <label for="country">Country:</label>
+            <input type="text" id="country" class="form-check-input" placeholder="Enter country" name="listing[country]"required>
+            <div class="invalid-feedback">
+                Please provide a valid country.
+            </div>
+        </div>
+        <div>
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="listing[location]" placeholder="Enter location" class="form-check-input"
+                required>
+            <div class="invalid-feedback">
+                Please provide a valid location.
+            </div>
+        </div>
+        <div>
+            <label for="category">Category : </label>
+            <select name="listing[category]" id="category">
+                <option value="icons">Icons</option>ouses
+                <option value="amazingpools">Amazing pools</option>
+                <option value="farms">Farm</option>
+                <option value="treehouses">Treehouses</option>
+                <option value="beach">Beach</option>
+                <option value="castles">Catles</option>
+                <option value="rooms">Rooms</option>
+                <option value="trending">Trending</option>
+                <option value="domes">Domes</option>
+                <option value="topcities">Topcities</option>
+                <option value="arctic">Arctic</option>
+            </select>
+        </div><br>
+        <button>Add</button><br>
+        <a href="/listings">Back to Listings</a>
+    </form>
